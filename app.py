@@ -2,6 +2,7 @@ import os
 import uuid
 from pathlib import Path
 from flask import Flask, request
+import requests
 from twilio.twiml.messaging_response import MessagingResponse
 
 from update_repo import upload_image_and_update_html

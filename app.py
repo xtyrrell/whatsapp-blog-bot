@@ -37,23 +37,16 @@ def receive_message():
     print("content_type is", content_type)
 
     image_id = uuid.uuid4()
-    uploads_path = Path("uploads")
     extension = MIMETYPE_TO_EXTENSION.get(content_type)
     if extension is None:
         return respond("The file that you submitted is not a supported image type. 💔")
 
-    image_path = Path(uploads_path, str(image_id) + extension)
-
-    if not os.path.exists(uploads_path):
-        os.mkdir(uploads_path)
-
-    with open(image_path, "wb") as f:
-        f.write(r.content)
+    image_filename = str(image_id) + extension
 
     try:
         print("Updating website repo...")
         upload_image_and_update_html(
-            env.get("GITHUB_TOKEN"), env.get("GITHUB_REPO"), image_path
+            env.get("GITHUB_TOKEN"), env.get("GITHUB_REPO"), image_filename, r.content
         )
         print("Done!")
     except:

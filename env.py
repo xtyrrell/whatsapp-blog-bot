@@ -10,12 +10,11 @@ class MissingEnvVarException(Exception):
         )
 
 
-def validate_required_env(env: dict[str, str | None]):
+def validate_required_env(env):
     missing = list(filter(lambda k: env.get(k) is None, REQUIRED_ENV_VALUES))
 
     if len(missing) > 0:
-        print("Missing env vars", missing)
-        # raise MissingEnvVarException(missing)
+        raise MissingEnvVarException(missing)
 
     return env
 

@@ -1,6 +1,5 @@
-import os
 import uuid
-from pathlib import Path
+import logging
 from flask import Flask, request
 import requests
 from twilio.twiml.messaging_response import MessagingResponse
@@ -8,6 +7,8 @@ from twilio.twiml.messaging_response import MessagingResponse
 from update_repo import upload_image_and_update_html
 from utils import MIMETYPE_TO_EXTENSION
 from env import env
+
+logger = logging.getLogger(__name__)
 
 
 app = Flask(__name__)
@@ -51,6 +52,7 @@ def receive_message():
         print("Done!")
     except Exception as e:
         print("Exception: ", e)
+        logger.exception()
         return respond(
             "Oops, couldn't add that image to your website. Please try again! 🙏"
         )

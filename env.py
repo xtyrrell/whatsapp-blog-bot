@@ -1,3 +1,4 @@
+import os
 from dotenv import dotenv_values
 
 REQUIRED_ENV_VALUES = ("GITHUB_TOKEN", "GITHUB_REPO")
@@ -20,4 +21,4 @@ def validate_required_env(env):
     return env
 
 
-env = validate_required_env(dotenv_values())
+env = validate_required_env({**dotenv_values(), **os.environ})

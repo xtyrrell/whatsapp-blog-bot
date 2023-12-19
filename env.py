@@ -1,4 +1,3 @@
-from typing import Literal, Type
 from dotenv import dotenv_values
 
 REQUIRED_ENV_VALUES = ("GITHUB_TOKEN", "GITHUB_REPO")

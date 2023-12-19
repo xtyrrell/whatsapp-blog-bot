@@ -9,6 +9,8 @@ def upload_image_and_update_html(
     g = Github(github_token)
     repo = g.get_repo(repo_name)
 
+    print(f"Updating repo {repo_name}")
+
     repo.create_file(
         f"assets/{image_filename}", f"Upload {image_filename}", image_content
     )

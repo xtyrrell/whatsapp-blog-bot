@@ -49,7 +49,8 @@ def receive_message():
             env.get("GITHUB_TOKEN"), env.get("GITHUB_REPO"), image_filename, r.content
         )
         print("Done!")
-    except:
+    except Exception as e:
+        print("Exception: ", e)
         return respond(
             "Oops, couldn't add that image to your website. Please try again! 🙏"
         )

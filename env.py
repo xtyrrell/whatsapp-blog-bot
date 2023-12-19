@@ -14,7 +14,8 @@ def validate_required_env(env):
     missing = list(filter(lambda k: env.get(k) is None, REQUIRED_ENV_VALUES))
 
     if len(missing) > 0:
-        raise MissingEnvVarException(missing)
+        print("Missing env vars", missing)
+        # raise MissingEnvVarException(missing)
 
     return env
 

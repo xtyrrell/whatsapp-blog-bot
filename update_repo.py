@@ -1,8 +1,6 @@
 from pathlib import Path
 from github import Github
 
-from env import env
-
 
 def upload_image_and_update_html(github_token, repo_name, image_path):
     # Initialize GitHub API client

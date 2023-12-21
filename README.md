@@ -1,6 +1,6 @@
 # WhatsApp Blog Bot
 
-This is a WhatsApp bot that you can send a photo to to update your website with that photo. The bot receives the message, pulls out the media_url, and uploads it to a GitHub repo, and adds an <code>&lt;img src="uploaded_image_path"></code> to the index.html.
+This is a WhatsApp bot that you can send a photo to to update your website with that photo. The bot receives the message, pulls out the media_url, and uploads it to a GitHub repo into `assets/`, and adds an `&lt;img src="uploaded_image_path">` to the index.html to display the image on the homepage.
 
 ## Deploying
 
